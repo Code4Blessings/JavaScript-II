@@ -41,24 +41,58 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 function getLength(arr, cb) {
   // getLength passes the length of the array into the callback.
+  return cb(arr.length)
 }
+
+function insertNumber(number) {
+  return `This list has ${number} items`
+}
+const trial1 = getLength(items, insertNumber);
+console.log(trial1);
 
 function last(arr, cb) {
   // last passes the last item of the array into the callback.
+  return cb(arr[3])
 }
+function wantSome(candy) {
+  return `Do you want some ${candy}?`
+}
+const trial2 = last(items, wantSome);
+console.log(trial2);
+
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
+  return cb(x, y)
 }
+function add2(num1, num2) {
+  return num1 + num2;
+}
+const trial3 = sumNums(5, 7, add2);
+console.log(trial3);
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
+  return cb(x, y);
 }
+function multiplex(a, b) {
+  return a * b;
+}
+trial4 = multiplyNums(8, 2, multiplex);
+console.log(trial4);
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  return cb(item, list)
 }
+function haveIt(item, list) {
+  return list.includes(item);
+}
+const trial5 = contains('Notebook', items, haveIt);
+console.log(trial5);
+const trial6 = contains('airplane', items, haveIt)
+console.log(trial6);
 
 /* STRETCH PROBLEM */
 
