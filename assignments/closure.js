@@ -6,7 +6,7 @@
 const sayWhatsUp = () => {
   let greeting = "What's up"
   return function(name) {
-    return `${greeting} ${name}`
+    return `${greeting} ${name}?`
   }
 }
 const myGreeting = sayWhatsUp();
@@ -20,15 +20,23 @@ console.log(myGreeting('Danny'));
 const counterMaker = () => {
   // IMPLEMENTATION OF counterMaker:
   // 1- Declare a `count` variable with a value of 0. We will be mutating it, so declare it using `let`!
+  let count = 0
   // 2- Declare a function `counter`. It should increment and return `count`.
   //      NOTE: This `counter` function, being nested inside `counterMaker`,
   //      "closes over" the `count` variable. It can "see" it in the parent scope!
+  return function counter() {
+    count++
+    return count;
+  }
   // 3- Return the `counter` function.
 };
+
 // Example usage: const myCounter = counterMaker();
 // myCounter(); // 1
 // myCounter(); // 2
-
+const myCounter = counterMaker();
+console.log(myCounter());
+console.log(myCounter());
 // ==== Challenge 3: Make `counterMaker` more sophisticated ====
 // It should have a `limit` parameter. Any counters we make with `counterMaker`
 // will refuse to go over the limit, and start back at 1.
