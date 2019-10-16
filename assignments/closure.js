@@ -3,7 +3,15 @@
 // Keep it simple! Remember a closure is just a function
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
-
+const sayWhatsUp = () => {
+  let greeting = "What's up"
+  return function(name) {
+    return `${greeting} ${name}`
+  }
+}
+const myGreeting = sayWhatsUp();
+console.log(myGreeting('Robin'));
+console.log(myGreeting('Danny'));
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
